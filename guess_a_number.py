@@ -3,13 +3,19 @@ import random
 # config
 low = 1
 high = 100
-limit = 5
+
+import math
+limit = math.log(high - low + 1, 2)
+
 
 # helper functions
 def show_start_screen():
-    print("**************************")
-    print("**** Guess a Number ! ****")
-    print("**************************")
+    print(" _____                               _   _                 _               ")
+    print("|  __ \                             | \ | |               | |              ")
+    print("| |  \/_   _  ___  ___ ___    __ _  |  \| |_   _ _ __ ___ | |__   ___ _ __ ")
+    print("| | __| | | |/ _ \/ __/ __|  / _` | | . ` | | | | '_ ` _ \| '_ \ / _ \ '__|")
+    print("| |_\ \ |_| |  __/\__ \__ \ | (_| | | |\  | |_| | | | | | | |_) |  __/ |   ")
+    print(" \____/\__,_|\___||___/___/  \__,_| \_| \_/\__,_|_| |_| |_|_.__/ \___|_|  ")
 
 def show_credits():
     print("This awesome game was created by Coop Dogg, but was made better by Kenneth Alexander.")
@@ -26,7 +32,7 @@ def get_guess():
 
 def pick_number():
     print("I'm thinking of a number from " + str(low) + " to " + str(high) +".")
-    print("Think carefully because you only get 5 chances. ")
+    print("Think carefully because you only get 7 chances to guess the correct the right number. ")
 
     return random.randint(low, high)
 
