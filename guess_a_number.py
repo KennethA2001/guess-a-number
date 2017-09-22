@@ -17,6 +17,8 @@ def show_start_screen():
     print("| |_\ \ |_| |  __/\__ \__ \ | (_| | | |\  | |_| | | | | | | |_) |  __/ |   ")
     print(" \____/\__,_|\___||___/___/  \__,_| \_| \_/\__,_|_| |_| |_|_.__/ \___|_|  ")
 
+print()
+
 def show_credits():
     print("This awesome game was created by Coop Dogg, but was made better by Kenneth Alexander.")
     
@@ -32,6 +34,8 @@ def get_guess():
 
 def pick_number():
     print("I'm thinking of a number from " + str(low) + " to " + str(high) +".")
+    print()
+    print()
     print("Think carefully because you only get 7 chances to guess the correct the right number. ")
 
     return random.randint(low, high)
@@ -76,7 +80,7 @@ def play():
 
 # Game starts running here
 show_start_screen()
-
+print() 
 playing = True
 
 while playing:
