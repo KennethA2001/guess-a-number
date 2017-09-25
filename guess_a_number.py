@@ -5,7 +5,8 @@ low = 1
 high = 100
 
 import math
-limit = math.log(high - low + 1, 2)
+limit = math.ceil(math.log(high - low + 1, 2))
+
 
 
 # helper functions
@@ -36,7 +37,7 @@ def pick_number():
     print("I'm thinking of a number from " + str(low) + " to " + str(high) +".")
     print()
     print()
-    print("Think carefully because you only get 7 chances to guess the correct the right number. ")
+    print("Think carefully because you only get " + str(limit) + " chances to guess the correct the right number. ")
 
     return random.randint(low, high)
 
