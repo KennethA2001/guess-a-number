@@ -7,10 +7,9 @@ high = 100
 
 # helper functions
 def show_start_screen():
-    print("*************************")
-    print("*  Guess a Number A.I!  *")
-    print("*************************")
-
+    print("  _____                                  _   _                 _                          _  ")
+    print(" / ____|                         /\     | \ | |               | |                   /\   (_) ")
+    print(" | |  __ _   _  ___  ___ ___     /  \    |  \| |_   _ _ __ ___ | |__   ___ _ __     /  \   _ ")
 def show_credits():
     pass
     
@@ -61,7 +60,7 @@ def show_result():
     """
     Says the result of the game. (The computer might always win.)
     """
-    pass
+    print("Thanks for playing")
 
 def play_again():
     while True:
@@ -87,12 +86,12 @@ def play():
 
         if check == -1:
             # adjust current_low
-            pass
+            current_low = guess + 1
         elif check == 1:
             # adjust current_high
-            pass
+            current_high= guess - 1
 
-    show_result(guess, rand)
+    show_result()
 
 
 # Game starts running here
