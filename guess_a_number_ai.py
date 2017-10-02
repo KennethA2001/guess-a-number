@@ -49,15 +49,15 @@ def check_guess(guess):
              1 if the guess was too high
     """
 
-    answer=input("Is " + str(guess) + " too low, high, or was it correct ")
+    answer=input("Is " + str(guess) + " too low, high, or was it correct (h/l/c) ")
     
-    if answer== 'too high' or answer== 'high':
+    if answer== 'too high' or answer== 'high' or answer=='h' or int.high():
        return 1
     
-    if answer== 'too low' or answer== 'low':
+    if answer== 'too low' or answer== 'low' or answer=='l':
         return -1
 
-    if answer== 'correct':
+    if answer== 'correct'or answer=='c':
         return 0
         
 
@@ -68,6 +68,7 @@ def show_result():
     Says the result of the game. (The computer might always win.)
     """
     print("Thanks for playing")
+   
 
 def play_again():
     while True:
@@ -76,7 +77,16 @@ def play_again():
         if decision == 'y' or decision == 'yes':
             return True
         elif decision == 'n' or decision == 'no':
+            print()
+            print()
+            print(" _  __                     _   _        ___    _____ ______ _____   ___  __ ______")
+            print("| |/ /                    | | | |      / _ \  / /__ \____  / /__ \ / _ \/_ |____  |")
+            print("| ' / ___ _ __  _ __   ___| |_| |__   | (_) |/ /   ) |  / / /   ) | | | || |   / / ")
+            print("|  < / _ \ '_ \| '_ \ / _ \ __| '_ \   \__, / /   / /  / / /   / /| | | || |  / /")
+            print("| . \  __/ | | | | | |  __/ |_| | | |    / / /   / /_ / / /   / /_| |_| || | / /")
+            print("|_|\_\___|_| |_|_| |_|\___|\__|_| |_|   /_/_/   |____/_/_/   |____|\___/ |_|/_/")
             return False
+            
         else:
             print("I don't understand. Please enter 'y' or 'n'.")
 
@@ -110,8 +120,8 @@ while playing:
 
     play()
     playing = play_again()
-
-show_credits()
+    
+    show_credits()
 
 
 
