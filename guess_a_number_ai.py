@@ -50,8 +50,9 @@ def check_guess(guess):
     """
 
     answer=input("Is " + str(guess) + " too low, high, or was it correct (h/l/c) ")
+    answer=answer.lower()
     
-    if answer== 'too high' or answer== 'high' or answer=='h' or int.high():
+    if answer== 'too high' or answer== 'high' or answer=='h':
        return 1
     
     if answer== 'too low' or answer== 'low' or answer=='l':
@@ -59,7 +60,9 @@ def check_guess(guess):
 
     if answer== 'correct'or answer=='c':
         return 0
-        
+
+    else:
+        print("I'm sorry, I don't understand, please respond with h/l/c ")
 
 
 def show_result():
@@ -73,6 +76,7 @@ def show_result():
 def play_again():
     while True:
         decision = input("Would you like to play again? (y/n) ")
+        decision=decision.lower()
 
         if decision == 'y' or decision == 'yes':
             return True
