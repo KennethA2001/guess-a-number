@@ -1,9 +1,5 @@
 import random
-
-# config
-low = 1
-high = 100
-
+import math
 
 # helper functions
 def show_start_screen():
@@ -36,7 +32,6 @@ def pick_number():
     Then  wait until the player presses enter.
     """
     
-    input("Think a number 1-100, and I'm going to try to guess it, make sure you don't input it. ")
 
 
 
@@ -95,9 +90,16 @@ def play_again():
             print("I don't understand. Please enter 'y' or 'n'.")
 
 def play():
-    current_low = low
-    current_high = high
+    print("Enter the lowest number guessable. ")
+    current_low = input()
+    current_low= int(current_low)
+
+    print("Enter the highest number guessable.")
+    current_high=input()
+    current_high=int(current_high)
+
     check = -1
+    limit = math.ceil(math.log(current_high - current_low + 1, 2))
     
     pick_number()
     
@@ -107,10 +109,10 @@ def play():
 
         if check == -1:
             # adjust current_low
-            current_low = guess + 1
+            current_low = guess
         elif check == 1:
             # adjust current_high
-            current_high= guess - 1
+            current_high= guess
 
     show_result()
 
