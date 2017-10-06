@@ -1,6 +1,7 @@
 import random
 import math
 
+
 # helper functions
 def show_start_screen():
     print()
@@ -13,8 +14,13 @@ def show_start_screen():
     print(" \_____|\__,_|\___||___/___/ /_/    \_\ |_| \_|\__,_|_| |_| |_|_.__/ \___|_|    /_/    \_\_|")
     print()
     print()
+    
 def show_credits():
     pass
+
+def computer_limit(current_high, current_low):
+    limit= math.ceil(math.log(current_high - current_low + 1, 2))
+    return limit
     
 def get_guess(current_low, current_high):
     """
@@ -35,7 +41,7 @@ def pick_number():
 
 
 
-def check_guess(guess):
+def check_guess(guess, name):
     """
     Computer will ask if guess was too high, low, or correct.
 
@@ -43,8 +49,7 @@ def check_guess(guess):
              0 if the guess was correct
              1 if the guess was too high
     """
-
-    answer=input("Is " + str(guess) + " too low, high, or was it correct (h/l/c) ")
+    answer=input("Is " + str(guess) + " too low, high, or was it correct, " + str(name)+ " (h/l/c) ")
     answer=answer.lower()
     
     if answer== 'too high' or answer== 'high' or answer=='h':
@@ -57,15 +62,15 @@ def check_guess(guess):
         return 0
 
     else:
-        print("I'm sorry, I don't understand, please respond with h/l/c ")
+        print("I'm sorry " + str(name) + " I don't understand, please respond with h/l/c ")
 
 
-def show_result():
+def show_result(name):
     
     """
     Says the result of the game. (The computer might always win.)
     """
-    print("Thanks for playing")
+    print("Thanks for playing," + str(name))
    
 
 def play_again():
@@ -90,6 +95,10 @@ def play_again():
             print("I don't understand. Please enter 'y' or 'n'.")
 
 def play():
+    print("To begin the game please enter in your first name. ")
+    name=input()
+
+    
     print("Enter the lowest number guessable. ")
     current_low = input()
     current_low= int(current_low)
@@ -99,13 +108,14 @@ def play():
     current_high=int(current_high)
 
     check = -1
-    limit = math.ceil(math.log(current_high - current_low + 1, 2))
-    
+    limit = computer_limit(current_high, current_low)
+
     pick_number()
     
     while check != 0:
         guess = get_guess(current_low, current_high)
-        check = check_guess(guess)
+        
+        check = check_guess(guess, name)
 
         if check == -1:
             # adjust current_low
@@ -114,7 +124,7 @@ def play():
             # adjust current_high
             current_high= guess
 
-    show_result()
+    show_result(name)
 
 
 # Game starts running here
@@ -128,6 +138,7 @@ while playing:
     playing = play_again()
     
     show_credits()
+
 
 
 
