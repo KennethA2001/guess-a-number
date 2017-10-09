@@ -107,8 +107,21 @@ def play():
     current_high=input()
     current_high=int(current_high)
 
-    check = -1
+    
+    computer_limit(current_high, current_low)
     limit = computer_limit(current_high, current_low)
+    print("I will guess your number in, " + str(limit) + " tries or less. ")
+
+    check = -1
+
+    computer_limit(current_high, current_low)
+    
+    limit = computer_limit(current_high, current_low)
+    while check != check < limit:
+        check_guess()
+
+        tries += 1
+    
 
     pick_number()
     
